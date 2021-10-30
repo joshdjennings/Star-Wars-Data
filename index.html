@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
     <title>Star Wars</title>
 </head>
 <body>
+  <p>Pick something from the menu to learn more about Star Wars</p>
+          <div class="dropdown">
+          <button class="dropbtn">Star Wars info</button>
+              <div class="dropdown-content">
+                <a id="planets">Planets</a>
+                <a id="spaceships">Spaceships</a>
+                <a id="vehicles">Vehicles</a>
+                <a id="people"">People</a>
+                <a id="films">Films</a>
+                <a id="species">Species</a>
+              </div>
+          </div>
+          
+          <div id="info-about-what-you-selected-container" style="display:inline-flexbox">
+            <h2>This is Your ranomly selected information:=</h2>
+            <ul> id="did-not-know-that-list</ul>
+
+           
+        </div>
+        <script src="index.js"></script>
     
 </body>
 </html>
