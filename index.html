@@ -12,45 +12,30 @@
 <body>
   
   <h1>RANDOM STAR WARS INFORMATION</h1>
-  <p>Pick something from the menu to learn more about Star Wars</p>
-          <div class="dropdown">
-          <button class="dropbtn">Star Wars info</button>
-              <div class="dropdown-content">
-                <a id="films">Films</a>
-                <a id="people"">People</a>
-                <a id="starships">Starships</a>
-                <a id="vehicles">Vehicles</a>
-                <a id="planets">Planets</a>
-                <a id="species">Species</a>
-              </div>
+      <p>Pick a Movie from the menu below to learn more about Each Film</p>
+      <div class="dropdown">
+      <button class="dropbtn">Star Wars Films</button>
+          <div class="dropdown-content">
+              <a id="4">Episode IV</a>
+              <a id="5">Episode V</a>
+              <a id="6">Episode VI</a>
+              <a id="1">Episode I</a>
+              <a id="2">Episode II</a>
+              <a id="3">Episode III</a>
           </div>
-          
-          <p>Pick a Movie from the menu below to learn more about Each Film</p>
-          <div class="dropdown 2">
-          <button class="dropbtn-2">Star Wars Films</button>
-              <div class="dropdown-content-2">
-                <a id="4">Episode 4</a>
-                <a id="5">Episode 5</a>
-                <a id="6">Episode 6</a>
-                <a id="1">Episode 1</a>
-                <a id="2">Episode 2</a>
-                <a id="3">Episode 3</a>
-              </div>
-          </div>
+      </div>
 
-          <div id="random-information-container" style="display: none">
-            <h2>This is Your ranomly selected information</h2>
-               
-          </div>
+      <div id="movie-info-container" style="display: always;">
+          <h2>Information about your "Chosen One"</h2>
+          <ul id="movie-information-list">
 
-          <div id="saved-info-container" style="display: none" >
-            <h2>Stuff I didn't know before</h2>
-            <ul id="saved-information-list">
-
-            </ul>
-
-          </div>
-
+          </ul>
+      </div>   
+      
+      <div>
+      <button class="refresh-btn" id="refresh-btn">"You must unlearn what you have learned." -Yoda</button>
+      </div>
+      
         <script src="index.js"></script>
     
 </body>
