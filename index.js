@@ -1,11 +1,18 @@
-console.log ("Hi Star Wars Fans.  You can't see this because it's a console.log.")
 const card = document.querySelector('#card')
 //Event Listener 1 - hit a button and Fetches from Star Wars API https://www.swapi.tech/api
 // These are the fetch requests for the "FILMS" dropdown menu
-document.getElementById("1").addEventListener("click", fetchEpisodeIV);
-function fetchEpisodeIV(event) {
-  console.log(event.target.id);
-  fetch(`https://www.swapi.tech/api/films/${event.target.id}/`)
+document.getElementById("1").addEventListener("click", fetchEpisodeData);
+document.getElementById("2").addEventListener("click", fetchEpisodeData);
+document.getElementById("3").addEventListener("click", fetchEpisodeData);
+document.getElementById("4").addEventListener("click", fetchEpisodeData);
+document.getElementById("5").addEventListener("click", fetchEpisodeData);
+document.getElementById("6").addEventListener("click", fetchEpisodeData);
+
+document.getElementById("movie-select").addEventListener("change", fetchEpisodeData);
+
+function fetchEpisodeData(event) {
+  console.log(event)
+  fetch(`https://www.swapi.tech/api/films/${event.target.value}/`)
   .then(res => res.json())
   .then(data => displayInfo(data.result.properties)
   .catch((err) => {
@@ -15,51 +22,6 @@ function fetchEpisodeIV(event) {
   })
     
   )}
-
-document.getElementById("5").addEventListener("click", fetchEpisodeV);
-function fetchEpisodeV() {
-    fetch('https://www.swapi.tech/api/films/2')
-    .then(res => res.json())
-    .then(data => console.log(data.result.properties))
-    .catch(err => console.error(err))
-    
-  }
-
-  document.getElementById("6").addEventListener("click", fetchEpisodeVI);
-  function fetchEpisodeVI() {
-      fetch('https://www.swapi.tech/api/films/3')
-      .then(res => res.json())
-      .then(data => console.log(data.result.properties))
-      .catch(err => console.error(err))
-      
-    }
-
-document.getElementById("1").addEventListener("click", fetchEpisodeI);
-function fetchEpisodeI() {
-    fetch('https://www.swapi.tech/api/films/4')
-    .then(res => res.json())
-    .then(data => console.log(data.result.properties))
-    .catch(err => console.error(err))
-       
-}
-
-document.getElementById("2").addEventListener("click", fetchEpisodeII);
-function fetchEpisodeII() {
-  fetch('https://www.swapi.tech/api/films/5')
-  .then(res => res.json())
-  .then(data => console.log(data.result.properties))
-  .catch(err => console.error(err))
-          
-}
-
-document.getElementById("3").addEventListener("click", fetchEpisodeIII);
-function fetchEpisodeIII() {
-  fetch('https://www.swapi.tech/api/films/6')
-  .then(res => res.json())
-  .then(data => console.log(data.result.properties))
-  .catch(err => console.error(err))
-            
-}
  //displayInfo function
 function displayInfo(properties){
   console.log("input data", properties)

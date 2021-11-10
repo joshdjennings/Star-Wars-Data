@@ -13,18 +13,16 @@
   
   <h1>RANDOM STAR WARS INFORMATION</h1>
       <p>Pick a Movie from the menu below to learn more about Each Film</p>
-      <div class="dropdown">
-      <button class="dropbtn">Star Wars Films</button>
-          <div class="dropdown-content">
-              <a id="1">Episode IV</a>
-              <a id="2">Episode V</a>
-              <a id="3">Episode VI</a>
-              <a id="4">Episode I</a>
-              <a id="5">Episode II</a>
-              <a id="6">Episode III</a>
-          </div>
-      </div>
-
+      <select id="movie-select">
+        <option value="" selected disabled hidden>Choose a Movie</option>
+        <option value="1">Episode IV</option>
+        <option value="2">Episode V</option>
+        <option value="3">Episode VI</option>
+        <option value="4">Episode I</option>
+        <option value="5">Episode II</option>
+        <option value="6">Episode III</option>
+    </select>
+      
       <div id="movie-container">
           <h2>Information about your "Chosen One"</h2>
           <p>Your Movie</p>
