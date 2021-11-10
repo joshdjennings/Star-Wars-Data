@@ -2,12 +2,17 @@ console.log ("Hi Star Wars Fans.  You can't see this because it's a console.log.
 const card = document.querySelector('#card')
 //Event Listener 1 - hit a button and Fetches from Star Wars API https://www.swapi.tech/api
 // These are the fetch requests for the "FILMS" dropdown menu
-document.getElementById("4").addEventListener("click", fetchEpisodeIV);
-function fetchEpisodeIV() {
-  fetch("https://www.swapi.tech/api/films/1/")
+document.getElementById("1").addEventListener("click", fetchEpisodeIV);
+function fetchEpisodeIV(event) {
+  console.log(event.target.id);
+  fetch(`https://www.swapi.tech/api/films/${event.target.id}/`)
   .then(res => res.json())
-  .then(properties => displayInfo(properties)
-    // .catch(err => console.error(err))
+  .then(data => displayInfo(data.result.properties)
+  .catch((err) => {
+    if (err) {
+      console.log(err);
+    }
+  })
     
   )}
 
@@ -55,11 +60,14 @@ function fetchEpisodeIII() {
   .catch(err => console.error(err))
             
 }
- 
+ //displayInfo function
 function displayInfo(properties){
-  let h4 = document.createElement ('h4');
-  h4.innerText = `${properties.title}`;
-  card.appendChild(h4);
+  console.log("input data", properties)
+  card.innerHTML =  ""
+  card.innerHTML = `<h4>Title: ${properties.title}</h4>
+  <h4>Episode: ${properties.episode_id}</h4>
+  <h4>Release Date: ${properties.release_date}</h4>
+  <h4>Director: ${properties.director}</h4>`;
 }
 
 
