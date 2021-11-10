@@ -1,15 +1,15 @@
 console.log ("Hi Star Wars Fans.  You can't see this because it's a console.log.")
-
+const card = document.querySelector('#card')
 //Event Listener 1 - hit a button and Fetches from Star Wars API https://www.swapi.tech/api
 // These are the fetch requests for the "FILMS" dropdown menu
 document.getElementById("4").addEventListener("click", fetchEpisodeIV);
 function fetchEpisodeIV() {
   fetch("https://www.swapi.tech/api/films/1/")
   .then(res => res.json())
-  .then(data => console.log(data.result.properties))
-    .catch(err => console.error(err))
+  .then(properties => displayInfo(properties)
+    // .catch(err => console.error(err))
     
-}
+  )}
 
 document.getElementById("5").addEventListener("click", fetchEpisodeV);
 function fetchEpisodeV() {
@@ -56,6 +56,13 @@ function fetchEpisodeIII() {
             
 }
  
+function displayInfo(properties){
+  let h4 = document.createElement ('h4');
+  h4.innerText = `${properties.title}`;
+  card.appendChild(h4);
+}
+
+
 // display info about selected content on screen 
 // make a div and make a card
 
