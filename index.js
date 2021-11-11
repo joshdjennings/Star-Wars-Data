@@ -1,35 +1,30 @@
-const card = document.querySelector('#card')
+const cardContainer = document.querySelector('#card-container')
 //Event Listener 1 - hit a button and Fetches from Star Wars API https://www.swapi.tech/api
 // These are the fetch requests for the "FILMS" dropdown menu
-document.getElementById("1").addEventListener("click", fetchEpisodeData);
-document.getElementById("2").addEventListener("click", fetchEpisodeData);
-document.getElementById("3").addEventListener("click", fetchEpisodeData);
-document.getElementById("4").addEventListener("click", fetchEpisodeData);
-document.getElementById("5").addEventListener("click", fetchEpisodeData);
-document.getElementById("6").addEventListener("click", fetchEpisodeData);
-
 document.getElementById("movie-select").addEventListener("change", fetchEpisodeData);
 
 function fetchEpisodeData(event) {
-  console.log(event)
   fetch(`https://www.swapi.tech/api/films/${event.target.value}/`)
   .then(res => res.json())
   .then(data => displayInfo(data.result.properties)
-  .catch((err) => {
-    if (err) {
-      console.log(err);
-    }
-  })
-    
+  
   )}
  //displayInfo function
-function displayInfo(properties){
-  console.log("input data", properties)
-  card.innerHTML =  ""
-  card.innerHTML = `<h4>Title: ${properties.title}</h4>
-  <h4>Episode: ${properties.episode_id}</h4>
-  <h4>Release Date: ${properties.release_date}</h4>
-  <h4>Director: ${properties.director}</h4>`;
+
+function displayInfo(movieDetails){
+  cardContainer.innerHTML =  ""
+  cardContainer.innerHTML = `<div class="card mb-4" style="width: 18rem; margin: auto;">
+  <div class="card-body">
+    <h5 class="card-title">${movieDetails.title}</h5>
+    <p class="card-text">Episode: ${movieDetails.episode_id}</p>
+    <p class="card-text">Release Date: ${movieDetails.release_date}</p>
+    <p class="card-text">Director: ${movieDetails.director}</p>
+  </div>
+</div>`
+  // card.innerHTML = `<h4>Title: ${movieDetails.title}</h4>
+  // <h4>Episode: ${movieDetails.episode_id}</h4>
+  // <h4>Release Date: ${movieDetails.release_date}</h4>
+  // <h4>Director: ${movieDetails.director}</h4>`;
 }
 
 
