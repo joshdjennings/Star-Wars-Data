@@ -2,6 +2,20 @@ const cardContainer = document.querySelector('#card-container')
 //Event Listener 1 - hit a button and Fetches from Star Wars API https://www.swapi.tech/api
 // These are the fetch requests for the "FILMS" dropdown menu
 document.getElementById("movie-select").addEventListener("change", fetchEpisodeData);
+document.getElementById("comment-btn").addEventListener("click", postComment)
+
+function postComment() {
+  const commentContainer = document.getElementById("comments-container");
+  const commentInput = document.getElementById("comment-input");
+  const commentText = commentInput.value;
+
+  if (commentText) {
+    let comment = document.createElement('p');
+    comment.innerHTML = commentText;
+    commentContainer.append(comment);
+    commentInput.value = "";
+  }
+}
 
 function fetchEpisodeData(event) {
   fetch(`https://www.swapi.tech/api/films/${event.target.value}/`)

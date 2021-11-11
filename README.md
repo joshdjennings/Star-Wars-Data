@@ -16,9 +16,5 @@ User Decides whether they "like" the film or not using a checkbox
 Event Listener 3:
 User clicks a "Start Over" button to clear screen and start over
 
-To start over:
-1) I could display the posters from each film and you click on an image to get info.  The info about the film displayed could be in a card below the film.
-2) User could have a like button on the card.
-3) User can drag and drop the image to a smaller rendering to rank you favorite movies in order.
 
 
