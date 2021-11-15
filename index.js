@@ -12,6 +12,7 @@ function postComment() {
   if (commentText) {
     let comment = document.createElement('p');
     comment.innerHTML = commentText;
+    commentContainer.innerHTML = "";
     commentContainer.append(comment);
     commentInput.value = "";
   }
@@ -23,10 +24,10 @@ function fetchEpisodeData(event) {
   .then(data => displayInfo(data.result.properties)
   
   )}
- //displayInfo function
-
+ 
+  //displayInfo function
 function displayInfo(movieDetails){
-  cardContainer.innerHTML =  ""
+  cardContainer.innerHTML =  "";
   cardContainer.innerHTML = `<div class="card mb-4" style="width: 18rem; margin: auto;">
   <div class="card-body">
     <h5 class="card-title">${movieDetails.title}</h5>
@@ -35,24 +36,11 @@ function displayInfo(movieDetails){
     <p class="card-text">Director: ${movieDetails.director}</p>
   </div>
 </div>`
-  // card.innerHTML = `<h4>Title: ${movieDetails.title}</h4>
-  // <h4>Episode: ${movieDetails.episode_id}</h4>
-  // <h4>Release Date: ${movieDetails.release_date}</h4>
-  // <h4>Director: ${movieDetails.director}</h4>`;
-}
 
+  }
 
-// display info about selected content on screen 
-// make a div and make a card
-
-
-//Event Listener 2 - user can click the heart button and the information about that item/movie will save down below
-
-//Event Listener 3 - 
-
+//Yoda Refresh button 
 document.getElementById("refresh-btn").addEventListener("click", startOver);
 function startOver(){
   location.reload()
 }
-
-//stretch goal - add to db.json server to save the favorited characters?
