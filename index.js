@@ -19,12 +19,14 @@ function fetchEpisodeData(event) {
   //displayInfo function
 function displayInfo(movieDetails){
   // cardContainer.innerHTML =  "";
-  cardContainer.innerHTML = `<div class="card mb-4" style="width: 18rem; margin: auto;">
+  cardContainer.innerHTML = `<div class="card mb-4" style="width: 35rem; margin: auto;">
   <div class="card-body">
+  <img class="card-img-top" src="https://m.media-amazon.com/images/I/719Ls6agJ2L._AC_SL1000_.jpg" alt="Card image cap">
     <h5 class="card-title">${movieDetails.title}</h5>
     <p class="card-text">Episode: ${movieDetails.episode_id}</p>
     <p class="card-text">Release Date: ${movieDetails.release_date}</p>
     <p class="card-text">Director: ${movieDetails.director}</p>
+    
   </div>
 </div>`
 
@@ -45,3 +47,24 @@ function postComment() {
 }
 
 
+// Sets the number of stars we wish to display
+const numStars = 100;
+
+// For every star we want to display
+for (let i = 0; i < numStars; i++) {
+  let star = document.createElement("div");  
+  star.className = "star";
+  var xy = getRandomPosition();
+    star.style.top = xy[0] + 'px';
+    star.style.left = xy[1] + 'px';
+  document.body.append(star);
+}
+
+// Gets random x, y values based on the size of the container
+function getRandomPosition() {  
+  var y = window.innerWidth;
+  var x = window.innerHeight;
+    var randomX = Math.floor(Math.random()*x);
+    var randomY = Math.floor(Math.random()*y);
+    return [randomX,randomY];
+}

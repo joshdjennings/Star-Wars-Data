@@ -15,5 +15,21 @@
 
   .refresh-btn:hover {background-color: #d41b27;}
 
+/* background here */
+body {
+  color: #feda4a;
+  margin: 0;
+  background-color: black;
+}
 
-  
+.card-body {
+  color: black;
+}
+
+.star {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background-color: white;
+}
+
