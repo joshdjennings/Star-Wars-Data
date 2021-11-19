@@ -1,7 +1,7 @@
 
   /*refresh button*/
   .select-wrapper {
-    max-width: 18rem;
+    max-width: 50rem;
     margin: auto;
   }
 
@@ -13,7 +13,7 @@
     border: none;
   }
 
-  .refresh-btn:hover {background-color: #d41b27;}
+  .refresh-btn:hover {background-color: hsl(356, 77%, 47%);}
 
 /* background here */
 body {

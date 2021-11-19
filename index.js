@@ -2,26 +2,23 @@ const cardContainer = document.querySelector('#card-container')
 
 document.getElementById("movie-select").addEventListener("change", fetchEpisodeData);
 document.getElementById("comment-btn").addEventListener("click", postComment)
+// listen for submit event rather than a click event.preventDefault 
 
-//Yoda Refresh button 
-document.getElementById("refresh-btn").addEventListener("click", startOver);
-function startOver(){
-  location.reload()
-}
 
+//fetch data from API and invoke displayInfo
 function fetchEpisodeData(event) {
   fetch(`https://www.swapi.tech/api/films/${event.target.value}/`)
   .then(res => res.json())
-  .then(data => displayInfo(data.result.properties)
-  
-  )}
+  // .then(data => console.log(data.result.properties))
+  .then(data => displayInfo(data.result.properties))
+  } 
  
-  //displayInfo function
-function displayInfo(movieDetails){
-  // cardContainer.innerHTML =  "";
-  cardContainer.innerHTML = `<div class="card mb-4" style="width: 35rem; margin: auto;">
+ function displayInfo(movieDetails){
+  // console.log(`${movieDetails.title} ${movieDetails.episode_id} ${movieDetails.release_date} ${movieDetails.director}`)
+  cardContainer.innerHTML = `<div class="card mb-4" style="width: 50rem; margin: auto;">
   <div class="card-body">
-  <img class="card-img-top" src="https://m.media-amazon.com/images/I/719Ls6agJ2L._AC_SL1000_.jpg" alt="Card image cap">
+  <img class="card-img-top" src="https://cdn.europosters.eu/image/750/posters/star-wars-complete-saga-i19317.jpg" alt="Card image cap">
+  
     <h5 class="card-title">${movieDetails.title}</h5>
     <p class="card-text">Episode: ${movieDetails.episode_id}</p>
     <p class="card-text">Release Date: ${movieDetails.release_date}</p>
@@ -31,6 +28,15 @@ function displayInfo(movieDetails){
 </div>`
 
   }
+
+  //Yoda Refresh button 
+document.getElementById("refresh-btn").addEventListener("click", startOver);
+function startOver(){
+  location.reload()
+  // clear card later instead of refresh
+  
+}
+
 // Comment section
 function postComment() {
   const commentContainer = document.getElementById("comments-container");
@@ -39,12 +45,12 @@ function postComment() {
 
   if (commentText) {
     let comment = document.createElement('p');
-    comment.innerHTML = commentText;
-    commentContainer.innerHTML = "";
+    comment.innerText = commentText;
     commentContainer.append(comment);
     commentInput.value = "";
   }
 }
+
 
 
 // Sets the number of stars we wish to display
@@ -68,3 +74,5 @@ function getRandomPosition() {
     var randomY = Math.floor(Math.random()*y);
     return [randomX,randomY];
 }
+
+
