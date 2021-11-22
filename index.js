@@ -29,11 +29,10 @@ function fetchEpisodeData(event) {
 
   }
 
-  //Yoda Refresh button 
+  //Yoda clear card button 
 document.getElementById("refresh-btn").addEventListener("click", startOver);
 function startOver(){
-  location.reload()
-  // clear card later instead of refresh
+  cardContainer.innerText = ""
   
 }
 
