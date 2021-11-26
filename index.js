@@ -10,19 +10,21 @@ document.getElementById("comment-btn").addEventListener("click", postComment)
 function fetchEpisodeData(event) {
   fetch(`https://www.swapi.tech/api/films/${event.target.value}/`)
   .then(res => res.json())
+  // .then(data => console.log(data))
   .then(data => displayInfo(data.result.properties))
   } 
  
 function displayInfo(movieDetails){
-  // console.log(`${movieDetails.title} ${movieDetails.episode_id} ${movieDetails.release_date} ${movieDetails.director}`)
+  console.log(`${movieDetails.title} ${movieDetails.episode_id} ${movieDetails.release_date} ${movieDetails.director}`)
   cardContainer.innerHTML = `<div class="card mb-4" style="width: 50rem; margin: auto;">
     <div class="card-body">
     <img class="card-img-top" src="https://cdn.europosters.eu/image/750/posters/star-wars-complete-saga-i19317.jpg" alt="Card image cap">
     
-      <h5 class="card-title">${movieDetails.title}</h5>
-      <p class="card-text">Episode: ${movieDetails.episode_id}</p>
-      <p class="card-text">Release Date: ${movieDetails.release_date}</p>
-      <p class="card-text">Director: ${movieDetails.director}</p>
+      <h4 class="card-title">${movieDetails.title}</h4>
+      <h6 class="card-text">Episode: ${movieDetails.episode_id}</h6>
+      <h6 class="card-text">Release Date: ${movieDetails.release_date}</h6>
+      <h6 class="card-text">Director: ${movieDetails.director}</h6>
+      <p class="card-text">${movieDetails.opening_crawl}</p>
       
     </div>
   </div>`
