@@ -1,6 +1,7 @@
 const cardContainer = document.querySelector('#card-container')
 
 document.getElementById("movie-select").addEventListener("change", fetchEpisodeData);
+document.getElementById("refresh-btn").addEventListener("click", startOver);
 document.getElementById("comment-btn").addEventListener("click", postComment)
 // listen for submit event rather than a click event.preventDefault 
 
@@ -9,38 +10,35 @@ document.getElementById("comment-btn").addEventListener("click", postComment)
 function fetchEpisodeData(event) {
   fetch(`https://www.swapi.tech/api/films/${event.target.value}/`)
   .then(res => res.json())
-  // .then(data => console.log(data.result.properties))
   .then(data => displayInfo(data.result.properties))
   } 
  
- function displayInfo(movieDetails){
+function displayInfo(movieDetails){
   // console.log(`${movieDetails.title} ${movieDetails.episode_id} ${movieDetails.release_date} ${movieDetails.director}`)
   cardContainer.innerHTML = `<div class="card mb-4" style="width: 50rem; margin: auto;">
-  <div class="card-body">
-  <img class="card-img-top" src="https://cdn.europosters.eu/image/750/posters/star-wars-complete-saga-i19317.jpg" alt="Card image cap">
-  
-    <h5 class="card-title">${movieDetails.title}</h5>
-    <p class="card-text">Episode: ${movieDetails.episode_id}</p>
-    <p class="card-text">Release Date: ${movieDetails.release_date}</p>
-    <p class="card-text">Director: ${movieDetails.director}</p>
+    <div class="card-body">
+    <img class="card-img-top" src="https://cdn.europosters.eu/image/750/posters/star-wars-complete-saga-i19317.jpg" alt="Card image cap">
     
-  </div>
-</div>`
-
+      <h5 class="card-title">${movieDetails.title}</h5>
+      <p class="card-text">Episode: ${movieDetails.episode_id}</p>
+      <p class="card-text">Release Date: ${movieDetails.release_date}</p>
+      <p class="card-text">Director: ${movieDetails.director}</p>
+      
+    </div>
+  </div>`
   }
 
-  //Yoda clear card button 
-document.getElementById("refresh-btn").addEventListener("click", startOver);
+//Yoda clear card button 
 function startOver(){
-  cardContainer.innerText = ""
-  
-}
+  cardContainer.innerText =""
+  }
 
 // Comment section
-function postComment() {
+function postComment(event) {
   const commentContainer = document.getElementById("comments-container");
   const commentInput = document.getElementById("comment-input");
   const commentText = commentInput.value;
+  event.preventDefault();
 
   if (commentText) {
     let comment = document.createElement('p');
@@ -49,7 +47,6 @@ function postComment() {
     commentInput.value = "";
   }
 }
-
 
 
 // Sets the number of stars we wish to display
