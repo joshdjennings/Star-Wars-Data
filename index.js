@@ -1,9 +1,10 @@
 const cardContainer = document.querySelector('#card-container')
+const commentContainer = document.querySelector('#comment-container')
 
 document.getElementById("movie-select").addEventListener("change", fetchEpisodeData);
 document.getElementById("refresh-btn").addEventListener("click", startOver);
-document.getElementById("comment-btn").addEventListener("click", postComment)
-// listen for submit event with event.preventDefault, rather than a click
+// document.getElementById("comment-btn").addEventListener("click", postComment)
+
 
 
 //fetch data from API and invoke displayInfo
@@ -32,6 +33,7 @@ function displayInfo(movieDetails){
 //Yoda clear card button 
 function startOver(){
   cardContainer.innerText = ``
+  commentContainer.innerText = ''
   }
 
 // Comment section
@@ -39,7 +41,6 @@ function postComment(event) {
   const commentContainer = document.getElementById("comments-container");
   const commentInput = document.getElementById("comment-input");
   const commentText = commentInput.value;
-  // event.preventDefault();
 
   if (commentText) {
     let comment = document.createElement('p');
@@ -52,10 +53,17 @@ function postComment(event) {
 function logSubmit(event) {
   const formInput = document.getElementById("form-input");
   const formText = formInput.value;
-  if (formText) {
-    log.textContent = `${formText}`;
-    event.preventDefault();
-  }
+  
+  commentContainer.innerHTML = `<div class="card mb-4" style="width: 50rem; margin: auto;">
+    <div class="card-body">
+    
+      <p class="card-title">${formText}</p>
+    </div>
+  </div>`
+  // document.getElementById("form-input") = ''
+  // log.textContent = `${formText}`;
+  event.preventDefault();
+
 }
 
 const form = document.getElementById('form');
