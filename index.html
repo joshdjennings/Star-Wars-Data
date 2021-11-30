@@ -12,8 +12,8 @@
 
 <body>
     <div class="container text-center">
-    <h1>STAR WARS</h1>
-    <h4>Pick a Movie from the menu below to learn more about Each Film</h4>
+        <h1>STAR WARS</h1>
+        <h4>Pick a Movie from the menu below to learn more about Each Film</h4>
     </div>
 
     <div class="container text-center" >
@@ -28,35 +28,40 @@
                 <option value="6">Episode III</option>
             </select>
         </div>
-            
+         
         
         <div id="card-container">
-           <!-- This is where the card will appear -->
         </div>
 
         
-        <!-- This is the refresh button to start over -->
         <div class="mb-4">
             <button class="btn refresh-btn" id="refresh-btn">"You must unlearn what you have learned." -Yoda</button>
         </div>
 
-        <!-- this is the comment area -->
         <div>
             <div class="form">
                 <h4>Do you have an opinion about Star Wars Movies?</h4>
-              <!-- <label for="comment-input">Leave a comment</label> -->
-              <input type="text" class="form-control" id="comment-input" placeholder='write comment here and then click "Post"'>
+                <label for="comment-input">Leave a comment</label>
+                <input type="text" class="form-control" id="comment-input" placeholder="write comment here">
+                <input type="submit" class="btn btn-primary" id="comment-btn">
             </div>
-            <button class="btn btn-primary" id="comment-btn">Post</button>
+           <!-- <button class="btn btn-primary" id="comment-btn">Post</button> -->
+          
+
         </div>
+        
         <div id="comments-container">
         </div>
+
+
+        <form id="form">
+            <label>Test field: <input type="text" id="form-input"></label>
+            <br><br>
+            <button type="submit">Submit form</button>
+          </form>
+          <p id="log"></p>
     </div>
 
-    </div>
-
-</body>
-</html>
 
     <script src="index.js"></script>
     
