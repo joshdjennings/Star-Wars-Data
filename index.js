@@ -1,8 +1,11 @@
 const cardContainer = document.querySelector('#card-container')
 const commentContainer = document.querySelector('#comment-container')
+// const form = document.getElementById('form');
+// form.addEventListener('submit', commentPost);
 
 document.getElementById("movie-select").addEventListener("change", fetchEpisodeData);
 document.getElementById("refresh-btn").addEventListener("click", startOver);
+document.getElementById('form').addEventListener('submit', commentPost);
 // document.getElementById("comment-btn").addEventListener("click", postComment)
 
 
@@ -13,6 +16,7 @@ function fetchEpisodeData(event) {
   .then(res => res.json())
   // .then(data => console.log(data))
   .then(data => displayInfo(data.result.properties))
+  .then(console.log("load page"))
   } 
  
 function displayInfo(movieDetails){
@@ -32,25 +36,27 @@ function displayInfo(movieDetails){
 
 //Yoda clear card button 
 function startOver(){
-  cardContainer.innerText = ``
+  document.getElementById("movie-select").value = ''
+  cardContainer.innerText = ''
   commentContainer.innerText = ''
   }
 
 // Comment section
-function postComment(event) {
-  const commentContainer = document.getElementById("comments-container");
-  const commentInput = document.getElementById("comment-input");
-  const commentText = commentInput.value;
+// function postComment(event) {
+//   const commentContainer = document.getElementById("comments-container");
+//   const commentInput = document.getElementById("comment-input");
+//   const commentText = commentInput.value;
 
-  if (commentText) {
-    let comment = document.createElement('p');
-    comment.innerText = commentText;
-    commentContainer.append(comment);
-    commentInput.value = "";
-  }
-}
+//   if (commentText) {
+//     let comment = document.createElement('p');
+//     comment.innerText = commentText;
+//     commentContainer.append(comment);
+//     commentInput.value = "";
+//   }
+// }
 
-function logSubmit(event) {
+function commentPost(event) {
+  event.preventDefault();
   const formInput = document.getElementById("form-input");
   const formText = formInput.value;
   
@@ -60,15 +66,11 @@ function logSubmit(event) {
       <p class="card-title">${formText}</p>
     </div>
   </div>`
-  // document.getElementById("form-input") = ''
-  // log.textContent = `${formText}`;
-  event.preventDefault();
+
 
 }
 
-const form = document.getElementById('form');
-const log = document.getElementById('log');
-form.addEventListener('submit', logSubmit);
+
 
 // Sets the number of stars we wish to display
 const numStars = 100;
