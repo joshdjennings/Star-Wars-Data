@@ -16,7 +16,6 @@ function fetchEpisodeData(event) {
   .then(res => res.json())
   // .then(data => console.log(data))
   .then(data => displayInfo(data.result.properties))
-  .then(console.log("load page"))
   } 
  
 function displayInfo(movieDetails){
