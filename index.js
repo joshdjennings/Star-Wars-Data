@@ -1,20 +1,13 @@
 const cardContainer = document.querySelector('#card-container')
 const commentContainer = document.querySelector('#comment-container')
-// const form = document.getElementById('form');
-// form.addEventListener('submit', commentPost);
 
 document.getElementById("movie-select").addEventListener("change", fetchEpisodeData);
 document.getElementById("refresh-btn").addEventListener("click", startOver);
 document.getElementById('form').addEventListener('submit', commentPost);
-// document.getElementById("comment-btn").addEventListener("click", postComment)
 
-
-
-//fetch data from API and invoke displayInfo
 function fetchEpisodeData(event) {
   fetch(`https://www.swapi.tech/api/films/${event.target.value}/`)
   .then(res => res.json())
-  // .then(data => console.log(data))
   .then(data => displayInfo(data.result.properties))
   } 
  
@@ -30,51 +23,32 @@ function displayInfo(movieDetails){
       <p class="card-text">${movieDetails.opening_crawl}</p>
       
     </div>
-  </div>`
+  </div>`;
   }
 
-//Yoda clear card button 
 function startOver(){
-  document.getElementById("movie-select").value = ''
-  cardContainer.innerText = ''
-  commentContainer.innerText = ''
+  document.getElementById("movie-select").value = '';
+  cardContainer.innerText = '';
+  commentContainer.innerText = '';
   }
-
-// Comment section
-// function postComment(event) {
-//   const commentContainer = document.getElementById("comments-container");
-//   const commentInput = document.getElementById("comment-input");
-//   const commentText = commentInput.value;
-
-//   if (commentText) {
-//     let comment = document.createElement('p');
-//     comment.innerText = commentText;
-//     commentContainer.append(comment);
-//     commentInput.value = "";
-//   }
-// }
 
 function commentPost(event) {
   event.preventDefault();
   const formInput = document.getElementById("form-input");
   const formText = formInput.value;
-  
   commentContainer.innerHTML = `<div class="card mb-4" style="width: 50rem; margin: auto;">
     <div class="card-body">
-    
-      <p class="card-title">${formText}</p>
+      <p>${formText}</p>
     </div>
-  </div>`
+  </div>`;
+  document.getElementById("form-input").value = '';
+  // document.createElement("div")
+  // document.commentContainer.append(`${formText}`)
 
-
+console.log(div.textContent)
 }
 
-
-
-// Sets the number of stars we wish to display
 const numStars = 100;
-
-// For every star we want to display
 for (let i = 0; i < numStars; i++) {
   let star = document.createElement("div");  
   star.className = "star";
@@ -84,7 +58,6 @@ for (let i = 0; i < numStars; i++) {
   document.body.append(star);
 }
 
-// Gets random x, y values based on the size of the container
 function getRandomPosition() {  
   var y = window.innerWidth;
   var x = window.innerHeight;
