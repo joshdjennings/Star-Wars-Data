@@ -1,6 +1,16 @@
+body {
+	color: #feda4a;
+	margin: 0;
+	background-color: black;
+}
+
 .select-wrapper {
 	max-width: 50rem;
 	margin: auto;
+}
+
+.card-body {
+	color: black;
 }
 
 .refresh-btn {
@@ -13,17 +23,6 @@
 
 .refresh-btn:hover {
 	background-color: hsl(356, 77%, 47%);
-}
-
-/* background here */
-body {
-	color: #feda4a;
-	margin: 0;
-	background-color: black;
-}
-
-.card-body {
-	color: black;
 }
 
 .star {
