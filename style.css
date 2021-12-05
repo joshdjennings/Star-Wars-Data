@@ -1,35 +1,34 @@
+.select-wrapper {
+	max-width: 50rem;
+	margin: auto;
+}
 
-  /*refresh button*/
-  .select-wrapper {
-    max-width: 50rem;
-    margin: auto;
-  }
+.refresh-btn {
+	background-color: #1e90ff;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+}
 
-  .refresh-btn {
-    background-color: #1e90ff;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-  }
-
-  .refresh-btn:hover {background-color: hsl(356, 77%, 47%);}
+.refresh-btn:hover {
+	background-color: hsl(356, 77%, 47%);
+}
 
 /* background here */
 body {
-  color: #feda4a;
-  margin: 0;
-  background-color: black;
+	color: #feda4a;
+	margin: 0;
+	background-color: black;
 }
 
 .card-body {
-  color: black;
+	color: black;
 }
 
 .star {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  background-color: white;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	background-color: white;
 }
-
