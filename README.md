@@ -1,5 +1,7 @@
 # Star Wars Movie Info App
 
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+
 This is my Vanilla JS Phase 1 project. I used HTML, Javascript, CSS, and Bootstrap to pull data from a public API. The web address for my API is: https://www.swapi.tech/
 
 ## Description
