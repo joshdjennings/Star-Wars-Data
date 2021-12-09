@@ -1,8 +1,8 @@
 # Star Wars Movie Info App
 
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+![This is the Star Wars Logo](https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg)
 
-This is my Vanilla JS Phase 1 project. I used HTML, Javascript, CSS, and Bootstrap to pull data from a public API. The web address for my API is: https://www.swapi.tech/
+This is my Vanilla JS Phase 1 project. I used HTML, Javascript, CSS, and Bootstrap to pull data from a public API. The web address for my API is: [SWAPI: A New Hope](https://www.swapi.tech/)
 
 ## Description
 
