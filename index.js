@@ -16,7 +16,7 @@ function fetchEpisodeData(event) {
 function displayInfo(movieDetails) {
 	cardContainer.innerHTML = `<div class="card mb-4" style="width: 50rem; margin: auto;">
     <div class="card-body">
-    <img class="card-img-top" src="https://cdn.europosters.eu/image/750/posters/star-wars-complete-saga-i19317.jpg" alt="Card image cap">
+    <img class="card-img-top" src="https://cdn.europosters.eu/image/750/posters/star-wars-complete-saga-i19317.jpg" alt="Card image">
     
       <h4 class="card-title">${movieDetails.title}</h4>
       <h6 class="card-text">Episode: ${movieDetails.episode_id}</h6>
